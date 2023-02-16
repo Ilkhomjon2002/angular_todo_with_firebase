@@ -1,0 +1,14 @@
+<div class="atoms__table">
+    
+    <div (click)="done(i)" class="atoms__table__row" *ngFor="let item of list;let i = index">
+        <div class="atoms__table__id">{{i+1}}</div>
+        <div [class]="!item?.completed? 'atoms__table__task' :'atoms__table__task__completed'"><span>
+            {{item.task}}
+        </span>
+        <span>
+            {{item.desc}}
+        </span>
+    </div>
+        <div class="atoms__table__button"><app-buton (click)="onDelete(i)">Del</app-buton></div>
+    </div>
+</div>

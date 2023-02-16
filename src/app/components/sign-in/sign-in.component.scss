@@ -1,0 +1,43 @@
+.displayTable {
+    width: min(400px, 80%);
+    margin: 0 auto;
+    padding-top: 10%;
+
+
+    .authBlock {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h3 {
+            font-size: 40px;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 18px;
+        }
+
+    }
+
+    .or {
+        font-size: 18px;
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .forgotPassword {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .redirectToLogin {
+        font-size: 18px;
+        text-align: center;
+        padding-top: 10px;
+    }
+}

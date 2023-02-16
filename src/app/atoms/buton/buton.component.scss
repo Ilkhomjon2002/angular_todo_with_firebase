@@ -1,0 +1,21 @@
+.atoms__button {
+    color: orange;
+    background-color: rgb(88, 88, 88);
+    padding: 1rem 1rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 5px 0 rgba($color: #000000, $alpha: 0.25);
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    width: 100%;
+
+    &:hover {
+        box-shadow: 4px 4px 5px 0 rgba($color: #000000, $alpha: 0.5);
+
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
+}
