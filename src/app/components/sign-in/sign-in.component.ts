@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { InputComponent } from 'src/app/atoms/input/input.component';
+import { Component, OnInit} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -8,13 +8,23 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-  userName="UserName"
+  
 
+myForm!:FormGroup
 
 
 
   constructor(public authService:AuthService){
 
   }
-  ngOnInit(){}
+  ngOnInit(){
+    this.myForm=new FormGroup({userName:new FormControl(
+    ),password:new FormControl()})
+
+  }
+  onSubmit(myForm:FormGroup){
+    console.log(myForm)
+    // this.authService.SignIn(myForm.value.userName, myForm.value.password)
+
+  }
 }

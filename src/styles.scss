@@ -24,3 +24,13 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.my-snackbar {
+    .mdc-button__label {
+        color: orange;
+    }
+
+    .mat-mdc-snack-bar-container.mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
+        color: orange !important;
+    }
+}

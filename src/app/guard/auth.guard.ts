@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
   constructor(
     public authService:AuthService,
     public router: Router,
-    
+    private snackbar:MatSnackBar
   ){}
   
   canActivate(
@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
      if(this.authService.isLoggedIn !==true){
       this.router.navigate(["sign-in"])
-      
+      this.snackbar.open("Please Login first!","Close", {panelClass:"my-snackbar"})
      }
      
       return true;

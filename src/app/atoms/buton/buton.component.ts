@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-buton',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./buton.component.scss']
 })
 export class ButonComponent {
+  @Input() type!:string
   
 
 }

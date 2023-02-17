@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-interface list{
+export interface list{
   id:number,
   task:String,
   desc?:String

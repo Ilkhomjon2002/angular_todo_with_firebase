@@ -1,16 +1,17 @@
 <div class="displayTable">
-    <div class="displayTableCell">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="displayTableCell">
       <div class="authBlock">
         <h3>Sign In</h3>
-        <div class="formGroup">
-          <input type="text" class="formControl" placeholder="Username" #userName required>
+      <div class="formGroup" >
+        
+          <input type="text" class="formControl" placeholder="Username" formControlName="userName" required>
         </div>
         <div class="formGroup">
-          <input type="password" class="formControl" placeholder="Password" #userPassword required>
+          <input type="password" class="formControl"  formControlName="password" placeholder="Password"  required>
         </div>
         <!-- Calling SignIn Api from AuthService -->
         <div class="formGroup">
-          <app-buton type="button" class="btn btnPrimary"  (click)="authService.SignIn(userName.value, userPassword.value)">Login</app-buton>
+          <app-buton type="submit" class="btn btnPrimary" >Login</app-buton>
         </div>
         <div class="formGroup">
           <span class="or"><span class="orInner">Or</span></span>
@@ -28,6 +29,6 @@
       <div class="redirectToLogin">
         <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
       </div>
-    </div>
+    </form>
   </div>
   

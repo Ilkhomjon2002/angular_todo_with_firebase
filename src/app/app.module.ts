@@ -6,7 +6,7 @@ import { SearchbarComponent } from './atoms/searchbar/searchbar.component';
 import { ListComponent } from './components/list/list.component';
 import { ButonComponent } from './atoms/buton/buton.component';
 import { TodoComponent } from './components/todo/todo.component';
-import { FormsModule } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule } from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
@@ -24,6 +24,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthService } from './services/auth/auth.service';
 import { InputComponent } from './atoms/input/input.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,8 @@ import { InputComponent } from './atoms/input/input.component';
     VerifyEmailComponent,
     ForgotPasswordComponent,
     DashboardComponent,
-    InputComponent
+    InputComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +56,13 @@ import { InputComponent } from './atoms/input/input.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
+    
     
   ],
-  providers: [AuthService],
+  providers: [AuthService,MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
