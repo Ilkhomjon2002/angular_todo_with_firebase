@@ -1,0 +1,12 @@
+.weather__app__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+}
+
+.weather__app__search {
+    h3 {
+        font-size: 20px;
+        color: orange;
+    }
+}

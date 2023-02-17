@@ -7,6 +7,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthGuard } from './guard/auth.guard';
+import { WeatherComponent } from './components/weather/weather.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:"forgot-password", component:ForgotPasswordComponent},
   {path:"verify-email-address", component:VerifyEmailComponent},
   {path:"todo", component:TodoComponent,canActivate:[AuthGuard]},
+  {path:"weather",component:WeatherComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

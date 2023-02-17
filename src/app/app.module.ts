@@ -28,6 +28,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
+import { WeatherComponent } from './components/weather/weather.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FetchWeatherService } from './services/fetchWeather/fetch-weather.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +44,8 @@ import { MatInputModule } from '@angular/material/input';
     ForgotPasswordComponent,
     DashboardComponent,
     InputComponent,
-    MainPageComponent
+    MainPageComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
@@ -58,11 +62,12 @@ import { MatInputModule } from '@angular/material/input';
     AngularFireDatabaseModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
     
     
   ],
-  providers: [AuthService,MatSnackBar],
+  providers: [AuthService,MatSnackBar,FetchWeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
