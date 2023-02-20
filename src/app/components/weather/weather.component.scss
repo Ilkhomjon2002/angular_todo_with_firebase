@@ -1,12 +1,37 @@
 .weather__app__container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     padding: 20px;
+    gap: 20px;
+    width: min(80%, 400px);
+    margin: 0 auto;
 }
 
 .weather__app__search {
-    h3 {
+
+    &__title {
         font-size: 20px;
         color: orange;
+    }
+
+    &__form {
+        display: grid;
+        gap: 20px;
+    }
+
+
+
+
+}
+
+.weather__app {
+    &__details {
+        background-color: #fff;
+        padding: 2rem;
+        color: #000;
+        border-radius: 0.5rem;
+
+        &__title {
+            font-size: 20px;
+        }
     }
 }

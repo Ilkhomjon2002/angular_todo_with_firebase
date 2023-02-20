@@ -3,11 +3,11 @@
       <div class="authBlock">
         <h3>Sign In</h3>
       <div class="formGroup" >
-        
-          <input type="text" class="formControl" placeholder="Username" formControlName="userName" required>
+          <app-input label="Username" inputId="username" type="text" class="formControl" placeholder="Username" [control]="myForm.controls['userName']" required/>
+          
         </div>
         <div class="formGroup">
-          <input type="password" class="formControl"  formControlName="password" placeholder="Password"  required>
+          <app-input label="Password" inputId="password" type="text" class="formControl" placeholder="Password" [control]="myForm.controls['password']" required/>
         </div>
         <!-- Calling SignIn Api from AuthService -->
         <div class="formGroup">

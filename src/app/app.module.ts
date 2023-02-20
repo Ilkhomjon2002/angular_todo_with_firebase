@@ -45,7 +45,7 @@ import { FetchWeatherService } from './services/fetchWeather/fetch-weather.servi
     DashboardComponent,
     InputComponent,
     MainPageComponent,
-    WeatherComponent
+    WeatherComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,11 @@
 
-<input type="text" [ngTemplateOutlet]="userName" placeholder="Task"  class="atoms__input"/>
+<div class="atoms__input__container">
+<label [for]="inputId">{{label}}</label>
+<input type="text" [class.inValid]="control.invalid && control.dirty && control.touched" (ngModelChange)="onChange()"  [name]="inputId" [class]="className +' atoms__input'" [formControl]="control" [placeholder]="placeholder?placeholder:'Task'"  />
+<ng-container  *ngIf="control.invalid && control.dirty && control.touched">
+    <div class="error" *ngFor="let err of control.errors|keyvalue">
+       {{returnError(err.key)}} 
+    </div>
+</ng-container>
+</div>
 

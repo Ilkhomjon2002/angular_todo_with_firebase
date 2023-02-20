@@ -1,55 +1,33 @@
 <div class="displayTable">
-    <div class="displayTableCell">
-      <div class="authBlock">
-        <h3>Sign Up</h3>
-        <div class="formGroup">
-          <input
-            type="email"
-            class="formControl"
-            placeholder="Email Address"
-            #userEmail
-            required
-          />
-        </div>
-        <div class="formGroup">
-          <input
-            type="password"
-            class="formControl"
-            placeholder="Password"
-            #userPwd
-            required
-          />
-        </div>
-        <div class="formGroup">
-          <app-buton
-            type="button"
-            class="btn btnPrimary"
-            (click)="authService.SignUp(userEmail.value, userPwd.value)"
-          >
-        Sign up
-      </app-buton>
-
-        </div>
-        <div class="formGroup">
-          <span class="or"><span class="orInner">Or</span></span>
-        </div>
-        <!-- Continue with Google -->
-        <div class="formGroup">
-          <app-buton
-            type="button"
-            class="btn googleBtn"
-            (click)="authService.GoogleAuth()"
-          >
-            <i class="fab fa-google-plus-g"></i>
-            Continue with Google
-          </app-buton>
-        </div>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="displayTableCell">
+    <div class="authBlock">
+      <h3>Sign Up</h3>
+    <div class="formGroup" >
+        <app-input label="Email" inputId="email" type="text" class="formControl" placeholder="Email" [control]="myForm.controls['userName']" required/>
+        
       </div>
-      <div class="redirectToLogin">
-        <span
-          >Already have an account?
-          <span class="redirect" routerLink="/sign-in">Log In</span></span
-        >
+      <div class="formGroup">
+        <app-input label="Password" inputId="password" type="text" class="formControl" placeholder="Password" [control]="myForm.controls['password']" required/>
+      </div>
+      <!-- Calling SignIn Api from AuthService -->
+      <div class="formGroup">
+        <app-buton type="submit" class="btn btnPrimary" >Sign up</app-buton>
+      </div>
+      <div class="formGroup">
+        <span class="or"><span class="orInner">Or</span></span>
+      </div>
+      <!-- Calling GoogleAuth Api from AuthService -->
+      <div class="formGroup">
+        <app-buton type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+          Sign up with Google
+        </app-buton>
+      </div>
+      <div class="forgotPassword">
+        <span routerLink="/forgot-password">Forgot Password?</span>
       </div>
     </div>
+    <div class="redirectToLogin">
+      <span>Don't have an account?<span class="redirect" routerLink="/sign-in"> Login</span></span>
+    </div>
+  </form>
   </div>

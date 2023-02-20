@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import * as auth from "firebase/auth"
+import { of } from 'rxjs';
 import { User } from '../user/user';
 @Injectable({
   providedIn: 'root'
@@ -58,9 +59,9 @@ export class AuthService {
       window.alert(error)
     })
   }
-  get isLoggedIn():boolean{
+  get isLoggedIn(){
     const user = JSON.parse(localStorage.getItem("user")!)
-    return user !==null && user.emailVerfied !== false?true : false
+    return of(user !==null && user.emailVerfied !== false?true : false)
   }
 
   GoogleAuth(){
@@ -77,9 +78,9 @@ export class AuthService {
     })
   }
   SetUserData(user:any){
-    const userRef:AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    )
+    // const userRef:AngularFirestoreDocument<any> = this.afs.doc(
+    //   `users/${user.uid}`
+    // )
     const userData:User={
       uid:user.uid,
       email:user.email,
@@ -88,9 +89,9 @@ export class AuthService {
       emailVerfied:user.emailVerfied
       
     }
-    return userRef.set(userData,{
-      merge:true
-    })
+    // return userRef.set(userData,{
+    //   merge:true
+    // })
   }
   SignOut(){
     return this.afAuth.signOut().then(()=>{

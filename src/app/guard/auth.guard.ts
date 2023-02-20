@@ -8,16 +8,20 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+  isLoggedInVal!:boolean
   constructor(
     public authService:AuthService,
     public router: Router,
     private snackbar:MatSnackBar
   ){}
-  
+   
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-     if(this.authService.isLoggedIn !==true){
+      this.authService.isLoggedIn.subscribe(val=>{
+        this.isLoggedInVal=val
+      })
+     if(this.isLoggedInVal !==true){
       this.router.navigate(["sign-in"])
       this.snackbar.open("Please Login first!","Close", {panelClass:"my-snackbar"})
      }

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from './services/auth/auth.service';
 
 @Component({
@@ -7,10 +7,16 @@ import { AuthService } from './services/auth/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
- constructor(public AuthService:AuthService){}
+  isLoggedIn!:boolean
+  constructor(public AuthService:AuthService){
+  this.AuthService.isLoggedIn.subscribe(val=>
+    this.isLoggedIn=val)
+  }
  ngOnInit(): void {
-     
+  
  }
  
+ 
+
 
 }

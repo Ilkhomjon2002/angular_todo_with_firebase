@@ -2,8 +2,20 @@
     font-size: 2rem;
     padding: 1rem;
     border-radius: 0.5rem;
-    border: none;
+    border: 2px solid transparent;
     outline: none;
     width: 100%;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
+
+    &.inValid {
+        border: 2px solid red;
+    }
+}
+
+.atoms__input__container {
+    & .error {
+        font-size: 1.6rem;
+        padding: 0.5rem;
+        color: red;
+    }
 }

@@ -12,7 +12,8 @@ export class WeatherComponent {
   weatherData!:any
   constructor(private formBuilder:FormBuilder,private fw:FetchWeatherService){
     this.weatherSearchForm=this.formBuilder.group({
-      location:[""]
+      location:
+        [""]
     })
 
 
